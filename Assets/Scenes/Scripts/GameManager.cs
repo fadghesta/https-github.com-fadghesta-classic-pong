@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
+        else if (gameOver && Input.GetKeyDown(KeyCode.Space))
+        {
+            RestartGame();
+        }
     }
 
     void StartGame()
@@ -38,19 +42,41 @@ public class GameManager : MonoBehaviour
         if (ball != null) ball.LaunchBall();
     }
 
+    void RestartGame()
+    {
+        playerScore = 0;
+        opponentScore = 0;
+        gameOver = false;
+        isGameStarted = false;
+        firstStart = true;
+        if (instructionText != null) instructionText.SetActive(true);
+        if (uiScript != null) uiScript.SetStatusText("", false);
+        if (uiScript != null)
+        {
+            uiScript.UpdatePlayerScoreDisplay();
+            uiScript.UpdateOpponentScoreDisplay();
+        }
+    }
+
     // Satu fungsi ScorePoint yang rapi
     public void ScorePoint(string zoneTag)
     {
         if (gameOver) return;
 
+        Debug.Log("ScorePoint called with tag: " + zoneTag);
+
         // Sesuaikan nama Tag ini dengan yang ada di Unity kamu
         if (zoneTag == "OpponentZone") 
         {
             playerScore++;
+            Debug.Log("Player Score: " + playerScore);
+            if (uiScript != null) uiScript.UpdatePlayerScoreDisplay();
         }
         else if (zoneTag == "PlayerZone")
         {
             opponentScore++;
+            Debug.Log("Opponent Score: " + opponentScore);
+            if (uiScript != null) uiScript.UpdateOpponentScoreDisplay();
         }
 
         // Memanggil "Teriakan" Event (Observer Pattern)
@@ -64,7 +90,8 @@ public class GameManager : MonoBehaviour
         {
             gameOver = true;
             ball.StopBall();
-            string winner = playerScore >= 11 ? "PLAYER 1 WINS!" : "OPPONENT WINS!";
+            string winner = playerScore >= 11 ? "PLAYER 1 WINS!" : "PLAYER 2 WINS!";
+            Debug.Log("Game Over: " + winner);
             if (uiScript != null) uiScript.SetStatusText(winner + "\nPRESS SPACE TO RESTART", true);
         }
         else

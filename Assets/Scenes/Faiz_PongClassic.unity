@@ -202,7 +202,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -5, z: 0}
-  m_LocalScale: {x: 21.5, y: 0.2, z: 1}
+  m_LocalScale: {x: 18.5, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1802611487}
@@ -264,11 +264,10 @@ GameObject:
   - component: {fileID: 198444166}
   - component: {fileID: 198444165}
   - component: {fileID: 198444167}
-  - component: {fileID: 198444168}
   - component: {fileID: 198444169}
   m_Layer: 0
   m_Name: Right Outzone
-  m_TagString: Untagged
+  m_TagString: OpponentZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,7 +336,7 @@ Transform:
   m_GameObject: {fileID: 198444164}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.5, y: 0, z: 0}
+  m_LocalPosition: {x: 9, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 10.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -389,18 +388,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &198444168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198444164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aecb87c3bd1724479b0b7d8c9e35aee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &198444169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,7 +492,6 @@ GameObject:
   - component: {fileID: 398914525}
   - component: {fileID: 398914524}
   - component: {fileID: 398914528}
-  - component: {fileID: 398914529}
   m_Layer: 0
   m_Name: Paddle 1
   m_TagString: Untagged
@@ -650,26 +636,13 @@ Transform:
   m_GameObject: {fileID: 398914523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.5, y: 0, z: 0}
+  m_LocalPosition: {x: -8, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &398914528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398914523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4aaad1cc1feb4449bb8f6852d91e5c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
---- !u!114 &398914529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -765,7 +738,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
-  m_LocalScale: {x: 21.5, y: 0.2, z: 1}
+  m_LocalScale: {x: 18.5, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1802611487}
@@ -987,7 +960,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 150}
+  m_AnchoredPosition: {x: -150, y: 150}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588318132
@@ -1429,7 +1402,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &652535258
 Canvas:
   m_ObjectHideFlags: 0
@@ -1439,7 +1412,7 @@ Canvas:
   m_GameObject: {fileID: 652535254}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1461,8 +1434,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652535254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.026362257, y: 0.026362257, z: 0.026362257}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 588318131}
@@ -1473,8 +1446,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 675, y: 380}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &690944351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,7 +1482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -150}
+  m_AnchoredPosition: {x: 0, y: -140}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &690944353
@@ -1532,7 +1505,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tekan Space untuk memulai Game
+  m_text: 'PRESS SPACE TO START
 
 '
   m_isRightToLeft: 0
@@ -1628,7 +1601,7 @@ GameObject:
   - component: {fileID: 694902474}
   m_Layer: 0
   m_Name: Left Outzone
-  m_TagString: Untagged
+  m_TagString: PlayerZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1697,7 +1670,7 @@ Transform:
   m_GameObject: {fileID: 694902470}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.5, y: 0, z: 0}
+  m_LocalPosition: {x: -9, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 10.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1795,7 +1768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 150}
+  m_AnchoredPosition: {x: 150, y: 150}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784443769
@@ -1911,7 +1884,6 @@ GameObject:
   - component: {fileID: 1016934634}
   - component: {fileID: 1016934633}
   - component: {fileID: 1016934637}
-  - component: {fileID: 1016934638}
   m_Layer: 0
   m_Name: Paddle 2
   m_TagString: Untagged
@@ -2056,7 +2028,7 @@ Transform:
   m_GameObject: {fileID: 1016934632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.5, y: 0, z: 0}
+  m_LocalPosition: {x: 8, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2075,21 +2047,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  ball: {fileID: 0}
---- !u!114 &1016934638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1016934632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85f41fcea3570b84db8817ff8102623a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  ball: {fileID: 0}
+  threshold: 0.1
+  ball: {fileID: 618677704}
 --- !u!1 &1260599944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,6 +2232,33 @@ MonoBehaviour:
   uiScript: {fileID: 652535255}
   playerScore: 0
   opponentScore: 0
+  onScoreChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 652535255}
+        m_TargetAssemblyTypeName: PongUIScript, Assembly-CSharp
+        m_MethodName: UpdatePlayerScoreDisplay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 652535255}
+        m_TargetAssemblyTypeName: PongUIScript, Assembly-CSharp
+        m_MethodName: UpdateOpponentScoreDisplay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1802611486
 GameObject:
   m_ObjectHideFlags: 0

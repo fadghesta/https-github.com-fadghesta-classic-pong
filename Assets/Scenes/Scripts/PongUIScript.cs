@@ -11,6 +11,14 @@ public class PongUIScript : MonoBehaviour
     [Header("Referensi Data")]
     public GameManager gameManager;
 
+    void Awake()
+    {
+        if (gameManager == null)
+        {
+            gameManager = FindFirstObjectByType<GameManager>();
+        }
+    }
+
     // Pastikan fungsi ini PUBLIC agar muncul di UnityEvent Inspector
     public void UpdatePlayerScoreDisplay()
     {
