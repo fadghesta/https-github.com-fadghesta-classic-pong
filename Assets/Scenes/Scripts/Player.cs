@@ -19,5 +19,8 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(0, moveInput * speed);
+        
+        // Batasi paddle agar tidak keluar dari stage
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4.5f, 4.5f), transform.position.z);
     }
 }

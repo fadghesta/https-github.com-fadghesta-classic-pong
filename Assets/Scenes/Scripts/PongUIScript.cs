@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;
+using TMPro; // Wajib untuk TextMeshPro
 
 public class PongUIScript : MonoBehaviour
 {
@@ -11,20 +11,37 @@ public class PongUIScript : MonoBehaviour
     [Header("Referensi Data")]
     public GameManager gameManager;
 
+    // Pastikan fungsi ini PUBLIC agar muncul di UnityEvent Inspector
     public void UpdatePlayerScoreDisplay()
     {
-        txtPlayerScore.text = gameManager.playerScore.ToString();
+        if (gameManager != null && txtPlayerScore != null)
+        {
+            txtPlayerScore.text = gameManager.playerScore.ToString();
+        }
     }
 
     public void UpdateOpponentScoreDisplay()
     {
-        txtOpponentScore.text = gameManager.opponentScore.ToString();
+        if (gameManager != null && txtOpponentScore != null)
+        {
+            txtOpponentScore.text = gameManager.opponentScore.ToString();
+        }
     }
 
-    // Fungsi baru untuk mengatur tampilan instruksi
+    // Fungsi gabungan untuk memudahkan update semua skor sekaligus
+    public void UpdateAllScores()
+    {
+        UpdatePlayerScoreDisplay();
+        UpdateOpponentScoreDisplay();
+    }
+
+    // Fungsi untuk mengatur tampilan instruksi/status
     public void SetStatusText(string message, bool active)
     {
-        txtStatus.text = message;
-        txtStatus.gameObject.SetActive(active);
+        if (txtStatus != null)
+        {
+            txtStatus.text = message;
+            txtStatus.gameObject.SetActive(active);
+        }
     }
 }

@@ -1,18 +1,26 @@
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.Events; // WAJIB ADA agar UnityEvent bisa jalan
 
 public class GameManager : MonoBehaviour
 {
-    public PongBall ball; // Referensi ke skrip bola
-    public GameObject instructionText; // Referensi ke UI "Press Space"
+    public PongBall ball;
+    public GameObject instructionText;
+    public PongUIScript uiScript;
     
-    private bool isGameStarted = false; // Status awal game: Belum mulai
+    public int playerScore = 0;
+    public int opponentScore = 0;
+    
+    private bool isGameStarted = false;
+    private bool gameOver = false;
+    private bool firstStart = true;
+
+    // BARIS INI yang memunculkan kotak di Inspector
+    [Header("Event System")]
+    public UnityEvent onScoreChanged;
 
     void Update()
     {
-        // Mengecek setiap frame apakah tombol Space ditekan
-        // Dan hanya berfungsi JIKA game belum dimulai
-        if (!isGameStarted && Input.GetKeyDown(KeyCode.Space))
+        if (!isGameStarted && !gameOver && Input.GetKeyDown(KeyCode.Space))
         {
             StartGame();
         }
@@ -21,24 +29,51 @@ public class GameManager : MonoBehaviour
     void StartGame()
     {
         isGameStarted = true;
-        
-        // Sembunyikan teks instruksi saat main
-        if (instructionText != null) 
+        if (firstStart && instructionText != null)
+        {
             instructionText.SetActive(false);
+            firstStart = false;
+        }
 
-        // Perintahkan bola untuk mulai bergerak
-        ball.LaunchBall(); 
+        if (ball != null) ball.LaunchBall();
     }
 
-    // Panggil fungsi ini saat terjadi Gol untuk mereset status
-    public void ResetRound()
+    // Satu fungsi ScorePoint yang rapi
+    public void ScorePoint(string zoneTag)
     {
-        isGameStarted = false;
-        
-        // Munculkan kembali teks instruksi
-        if (instructionText != null) 
-            instructionText.SetActive(true);
-            
-        ball.StopBall();
+        if (gameOver) return;
+
+        // Sesuaikan nama Tag ini dengan yang ada di Unity kamu
+        if (zoneTag == "OpponentZone") 
+        {
+            playerScore++;
+        }
+        else if (zoneTag == "PlayerZone")
+        {
+            opponentScore++;
+        }
+
+        // Memanggil "Teriakan" Event (Observer Pattern)
+        if (onScoreChanged != null)
+        {
+            onScoreChanged.Invoke();
+        }
+
+        // Cek Pemenang
+        if (playerScore >= 11 || opponentScore >= 11)
+        {
+            gameOver = true;
+            ball.StopBall();
+            string winner = playerScore >= 11 ? "PLAYER 1 WINS!" : "OPPONENT WINS!";
+            if (uiScript != null) uiScript.SetStatusText(winner + "\nPRESS SPACE TO RESTART", true);
+        }
+        else
+        {
+            if (ball != null)
+            {
+                ball.StopBall();
+                ball.LaunchBall();
+            }
+        }
     }
 }
